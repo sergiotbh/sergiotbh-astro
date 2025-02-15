@@ -1,5 +1,20 @@
 ---
+const query = `{
+    posts {
+        nodes {
+            title
+            content
+        }
+    }
+}`;
 
+const response = await fetch("https://sergiotbh-849c1b.ingress-haven.ewp.live/graphql", {
+	method: "POST",
+	headers: { "Content-Type": "application/json" },
+	body: JSON.stringify({ query }),
+});
+
+const { data } = await response.json();
 ---
 
 <html lang="en">
@@ -11,6 +26,13 @@
 		<title>Astro</title>
 	</head>
 	<body>
-		<h1>sergiotbh</h1>
+		{
+			data.posts.nodes.map((post) => (
+				<article>
+					<h3>{post.title}</h3>
+					<div set:html={post.content} />
+				</article>
+			))
+		}
 	</body>
 </html>
