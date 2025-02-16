@@ -1,0 +1,21 @@
+@import "tailwindcss";
+html {
+  background-color: #030712;
+  font-family: sans-serif;
+}
+
+body {
+  width: 100%;
+  padding: 1rem;
+  line-height: 1.5;
+  color: #fff;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+h1 {
+  margin: 1rem 0;
+  font-size: 2.5rem;
+}

@@ -1,4 +1,6 @@
 ---
+import '../styles/global.css';
+
 const query = `{
     posts {
         nodes {
@@ -26,13 +28,18 @@ const { data } = await response.json();
 		<title>Astro</title>
 	</head>
 	<body>
-		{
-			data.posts.nodes.map((post) => (
-				<article>
-					<h3>{post.title}</h3>
-					<div set:html={post.content} />
-				</article>
-			))
-		}
+		<h1 class="text-3xl font-bold underline text-end">sergiotbh</h1>
+		<!-- <section class="flex justify-center">
+			<div class="bg-gray-700 w-5xl h-96 rounded-lg">
+				{
+					data.posts.nodes.map((post) => (
+						<article>
+							<h3>{post.title}</h3>
+							<div set:html={post.content} />
+						</article>
+					))
+				}
+			</div>
+		</section> -->
 	</body>
 </html>
